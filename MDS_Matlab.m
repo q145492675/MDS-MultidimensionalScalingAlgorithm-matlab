@@ -1,12 +1,13 @@
-clear all; clc;
+clear all; 
+clc;
 D = [
     0   569  667  530  141  ;
     569 0    1212 1043 617  ;
     667 1212 0    201  596; ;
     530 1043 201  0    431  ; 
-    141 617  596  431  0     ];
+    141 617  596  431  0     ];  %This is the Eucildean distance matrix of these five cities
 fprintf('*************************************************************\n');
-fprintf('      Load Initial_data    \n      the Euclidean distance matrix D is')
+fprintf(' Load Initial_data    \n the Euclidean distance matrix D is')
 D
 fprintf('Program paused. Press enter to continue.\n');
 fprintf('*************************************************************\n');
@@ -23,7 +24,7 @@ M = 2;          % Two dimensions
 len = size(D2, 1);
 J = eye(len) - 1 / len * ones(len);
 B = -1/2 * J * D2 * J;
-fprintf(' the  matrix  J and B  is')
+fprintf(' The  matrix  J and B  is')
 J
 B
 fprintf('Program paused. Press enter to continue.\n');
@@ -31,9 +32,9 @@ fprintf('*************************************************************\n');
 pause;
 %--------------------------------------------------------------------------
 [eigvec,eigval] = eig(B);
-fprintf(' the  Eigenvector and Eigenvalue of B is')
-eigvec
-eigval
+fprintf(' The  Eigenvector and Eigenvalue of B is\n')
+EigenVector=eigvec
+EigenValue=eigval
 fprintf('Program paused. Press enter to continue.\n');
 fprintf('*************************************************************\n');
 pause;
@@ -43,8 +44,8 @@ eigvec = eigvec(order,:);
 eigvec = eigvec(:,1:M); 
 eigval = eigval(1:M);
 fprintf(' the M number of largest Eigenvalue and it Eigenvector is')
-Eigenvector=eigvec
-Eigenvalue=eigval'
+EigenVector=eigvec
+EigenValue=eigval'
 fprintf('Program paused. Press enter to continue.\n');
 fprintf('*************************************************************\n');
 pause;
